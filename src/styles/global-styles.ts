@@ -19,7 +19,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    margin-block: ${({ theme }) => theme.font.spacings.medium};
   }
 
   ul, ol {
@@ -30,7 +29,6 @@ export const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    margin-block: ${({ theme }) => theme.font.spacings.large};
   }
 
   a {

@@ -1,6 +1,8 @@
-import { Home } from "../templates/Home";
+import Home from '../components/templates/Home';
+import whitPrivateRoute from '../components/global/whitPrivateRoute';
 
-export default function index() {
+const index = () => {
   return <Home />;
-}
+};
 
+export default whitPrivateRoute(index);

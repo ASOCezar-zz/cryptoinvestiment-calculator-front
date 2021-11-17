@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/api/map-data.test.ts", "src/api/load-pages.ts", "src/api/load-pages.test.ts"  ],
+, "src/api/map-data.test.ts", "src/api/load-pages.ts", "src/api/load-pages.test.ts", "src/components/templates/Login/FormSection.tsc"  ],
   "exclude": [
     "node_modules"
   ]
