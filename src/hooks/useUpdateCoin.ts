@@ -1,24 +1,23 @@
 import { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import { ICoin } from '../Interfaces/ICoin';
 import { api } from '../services/api';
-
-type Coin = {
-  id: number;
-  name: string;
-  price: number;
-  updated_at: string;
-};
 
 export const useUpdateCoin = async (): Promise<void> => {
   const [updateTime, setUpdateTime] = useState<string>('');
 
-  console.log('called');
-
   useEffect(() => {
+    let mounted = true;
     (async () => {
-      const { updated_at } = await api.get('/coin').then((res: AxiosResponse<Coin[]>) => res.data[0]);
-      setUpdateTime(updated_at);
+      const { updated_at } = await api.get('/coin').then((res: AxiosResponse<ICoin[]>) => res.data[0]);
+      if (mounted) {
+        setUpdateTime(updated_at);
+      }
     })();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {

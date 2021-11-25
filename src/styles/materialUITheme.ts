@@ -1,20 +1,22 @@
 import { createTheme } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
 
 export const materialUITheme = createTheme({
   palette: {
     primary: {
       main: '#0DBC0D',
-      contrastText: '#fffff',
+      contrastText: '#ffffff',
     },
     secondary: {
       main: '#1F1E5A',
     },
+    error: {
+      main: '#C9100C',
+    },
     neutral: {
-      light: '#D5D5D5',
+      light: '#546E7A',
       main: '#B7B2B3',
       dark: '#424242',
-      contrastText: '#fffff',
+      contrastText: '#ffffff',
     },
   },
   typography: {

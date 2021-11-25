@@ -1,13 +1,7 @@
-import { Fade } from '@material-ui/core';
-import LoginForm from '../../components/templates/Login/LoginForm';
-import Wrapper from '../../components/templates/Login/Wrapper';
+import { ReactElement } from 'react';
 
-export default function index(): JSX.Element {
-  return (
-    <Fade>
-      <Wrapper>
-        <LoginForm />
-      </Wrapper>
-    </Fade>
-  );
+import LoginTemplate from '../../components/templates/Login';
+
+export default function Login(): ReactElement {
+  return <LoginTemplate />;
 }

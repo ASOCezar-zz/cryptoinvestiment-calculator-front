@@ -6,14 +6,17 @@ import { GlobalStyles } from '../styles/global-styles';
 import { materialUITheme } from '../styles/materialUITheme';
 import { theme } from '../styles/theme';
 import { AuthProvider } from '../contexts/authContext';
+import { CoinProvider } from '../contexts/coinContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <MaterialThemeProvider theme={materialUITheme}>
         <AuthProvider>
-          <Component {...pageProps} />
-          <GlobalStyles />
+          <CoinProvider>
+            <Component {...pageProps} />
+            <GlobalStyles />
+          </CoinProvider>
         </AuthProvider>
       </MaterialThemeProvider>
     </ThemeProvider>

@@ -9,16 +9,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
     scroll-behavior: smooth;
     font-family: 'Open sans', sans-serif;
-  }
-
-  body {
-    font-size: 1.6rem;
-  }
-
-  p {
   }
 
   ul, ol {

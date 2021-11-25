@@ -1,34 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Cryptocalc
 
-## Getting Started
+Esse é o frontend do serviço Cryptocalc desenvolvido durante o bootcamp da DIO em conjunto com a Eduzz.
 
-First, run the development server:
+# Stacks
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Esse projeto foi desenvolvido utilizando Next.Js e Typescript como linguagem de programação, Styled-Components e Material UI para a estilização, Axios para a requisição à API.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A ideia de utilização do Next se deu devido às facilidades e aos ganhos de desempenhos em server-side rendering que são possíveis nesse projeto, principalmente para as telas relacionadas ao investimento do usuário.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Conceito
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Baseado no conceito do protótipo do bootcamp de auxiliar na gestão de campanhas, desenvolvi esse serviço visando o auxilio na gestão de investimentos em criptomoedas que ganha força todos os anos.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Rotas
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- /login: Rota inicial da aplicação na qual é permitido o usuário fazer o login na aplicação;
+- /dashboard: Tela principal da aplicação onde ficam os valores de investimento, ROI e retorno total além das informações sobre os investimentos;
+- /dashboard/investiment/:id : Tela que permite a edição ou a criação de um novo investimento. Caso o investimento com o ID fornecido no slug da página não exista ou não pertença àquele usuário, ele será automaticamente para a rota de criação de um investimento. Caso o investimento exista e pertença ao usuário logado, é permitido a ele que atualize o valor investido.
+- /user: Rota com informações do usuário, que permite que ele faça alterações em seu perfil, seja no email cadastrado, no username, ou na senha.

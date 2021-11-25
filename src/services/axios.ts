@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GetServerSidePropsContext, NextPageContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 import { parseCookies } from 'nookies';
 import { ParsedUrlQuery } from 'querystring';
 

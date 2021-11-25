@@ -3,8 +3,10 @@ export const theme = {
     primaryColor: '#0DBC0D',
     secondaryColor: '#1F1E5A',
     white: '#ffffff',
-    lightGray: '#D5D5D5',
-    gray: '#424242',
+    lightGrey: '#D5D5D5',
+    mediumGrey: '#546E7A',
+    grey: '#424242',
+    danger: '#C9100C',
   },
   font: {
     sizes: {

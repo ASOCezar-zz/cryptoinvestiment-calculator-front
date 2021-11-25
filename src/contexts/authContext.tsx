@@ -2,15 +2,16 @@ import { AxiosResponse } from 'axios';
 
 import { parseCookies, setCookie } from 'nookies';
 import { createContext, useEffect, useState } from 'react';
+import { IUser } from '../Interfaces/IUser';
 import { api } from '../services/api';
 
 type AuthProviderProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
 };
 
 type AuthContextType = {
   isAuthenticated: boolean;
-  user: ResponseDataType['user'];
+  user: IUser;
   signIn: (data: DataType) => Promise<void>;
 };
 
@@ -20,11 +21,7 @@ type DataType = {
 };
 
 type ResponseDataType = {
-  user: {
-    id: number;
-    name: string;
-    email: string;
-  };
+  user: IUser;
   access_token: string;
 };
 
@@ -32,22 +29,29 @@ const AuthContext = createContext({} as AuthContextType);
 
 export default AuthContext;
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
   const [user, setUser] = useState<ResponseDataType['user'] | null>(null);
 
   const isAuthenticated = !!user;
 
   useEffect(() => {
+    let mounted = true;
     const { 'crypto-calculator-token': access_token } = parseCookies();
 
     if (access_token) {
       api
         .post('/token', { hash: access_token })
-        .then((response: AxiosResponse<ResponseDataType['user']>) => setUser(response.data))
+        .then((response: AxiosResponse<IUser>) => {
+          if (mounted) setUser(response.data);
+        })
         .catch((error) => {
           console.error(error.response.data.error);
         });
     }
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   async function signIn({ email, password }: DataType): Promise<void> {
@@ -56,7 +60,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       .then((response: AxiosResponse<ResponseDataType>) => response.data);
 
     setCookie(undefined, 'crypto-calculator-token', access_token, {
-      maxAge: 60 * 60,
+      maxAge: 60 * 60 * 24,
     });
     api.defaults.headers['Authorization'] = `Bearer ${access_token}`;
 
