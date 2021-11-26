@@ -20,9 +20,12 @@ export const CoinProvider = ({ children }: CoinProviderProps) => {
 
   useEffect(() => {
     let mounted = true;
-    api.get('/coin').then((response: AxiosResponse<ICoin[]>) => {
-      if (mounted) setCoins(response.data);
-    });
+    api
+      .get('/coin')
+      .then((response: AxiosResponse<ICoin[]>) => {
+        if (mounted) setCoins(response.data);
+      })
+      .catch((error) => console.log(error));
     return () => {
       mounted = false;
     };

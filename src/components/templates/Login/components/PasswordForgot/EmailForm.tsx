@@ -13,7 +13,7 @@ export default function EmailForm(): ReactElement {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post('http://localhost:3333/forgot-password', { email })
+      .post(`${process.env.ENDPOINT_URL}/forgot-password`, { email })
       .then((response: AxiosResponse) => {
         console.log(response);
         setSuccess(true);
