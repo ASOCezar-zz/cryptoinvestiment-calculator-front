@@ -36,6 +36,10 @@ export const Content = styled.div`
     z-index: 5;
     padding: 5%;
 
+    @media (min-width: 768px) {
+      padding: 15px;
+    }
+
     width: 65vw;
     max-width: 350px;
 

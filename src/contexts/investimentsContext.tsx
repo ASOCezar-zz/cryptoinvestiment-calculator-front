@@ -11,6 +11,7 @@ export interface IInvestimentsContext extends IInvestiment {
 type InvestimentsContextType = {
   investiments: IInvestimentsContext[];
   setChanged: Dispatch<SetStateAction<boolean>>;
+  changed: boolean;
 };
 
 type InvestimentProviderProps = {
@@ -35,5 +36,9 @@ export const InvestimentProvider = ({ children }: InvestimentProviderProps) => {
     };
   }, [changed]);
 
-  return <InvestimentsContext.Provider value={{ investiments, setChanged }}>{children}</InvestimentsContext.Provider>;
+  return (
+    <InvestimentsContext.Provider value={{ investiments, setChanged, changed }}>
+      {children}
+    </InvestimentsContext.Provider>
+  );
 };

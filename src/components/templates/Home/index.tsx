@@ -49,7 +49,11 @@ export default function Home(): JSX.Element {
       mappedInvestiments.map((mappedInvestiment) => {
         getAmount?.push(mappedInvestiment.profit);
       });
-      if (mounted && getAmount.length > 0) setAmount(getAmount?.reduce((prevValue, attValue) => prevValue + attValue));
+      if (mounted && getAmount.length > 0) {
+        setAmount(getAmount?.reduce((prevValue, attValue) => prevValue + attValue));
+      } else if (getAmount.length === 0) {
+        setAmount(0);
+      }
     }
 
     return () => {
@@ -64,8 +68,11 @@ export default function Home(): JSX.Element {
       mappedInvestiments.map((mappedInvestiment) => {
         getAmount?.push(mappedInvestiment.roi);
       });
-      if (mounted && getAmount.length > 0)
+      if (mounted && getAmount.length > 0) {
         setAmountRoi(getAmount?.reduce((prevValue, attValue) => prevValue + attValue));
+      } else if (getAmount.length === 0) {
+        setAmountRoi(0);
+      }
     }
 
     return () => {
@@ -80,8 +87,11 @@ export default function Home(): JSX.Element {
       mappedInvestiments.map((mappedInvestiment) => {
         getAmount?.push(mappedInvestiment.investimentValue);
       });
-      if (mounted && getAmount.length > 0)
+      if (mounted && getAmount.length > 0) {
         setAmountInvested(getAmount?.reduce((prevValue, attValue) => prevValue + attValue));
+      } else if (getAmount.length === 0) {
+        setAmountInvested(0);
+      }
     }
 
     return () => {
