@@ -1,8 +1,9 @@
+import { IInvestimentsContext } from '../contexts/investimentsContext';
 import { ICoin } from '../Interfaces/ICoin';
-import { IResponseDataType } from '../pages/dashboard/index';
+
 import calcPercentage from '../utils/calcPercentage';
 
-export default function serializeInvestiments(investiment: IResponseDataType, coins: ICoin[]) {
+export default function serializeInvestiments(investiment: IInvestimentsContext, coins: ICoin[]) {
   const coin = coins.find((coin) => coin.name === investiment.coin.name);
   const returnValue = coin.price - investiment.coinValue;
   const returnPercentage = returnValue / 100;
