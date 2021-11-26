@@ -24,7 +24,7 @@ export default function CreateAccountForm(): ReactElement {
     };
 
     axios
-      .post(`${process.env.ENDPOINT_URL}/register`, data)
+      .post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/register`, data)
       .then(() => router.push('/login'))
       .catch(function (error) {
         const message = error.response.data.error;

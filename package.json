@@ -17,6 +17,7 @@
     "@material-ui/styled-engine-sc": "^5.0.0-beta.5",
     "@mui/icons-material": "^5.1.1",
     "@mui/material": "^5.2.1",
+    "@next/env": "^12.0.4",
     "axios": "^0.24.0",
     "js-cookie": "^3.0.1",
     "next": "11.1.1",

@@ -7,7 +7,7 @@ export function getApiClient(ctx?: GetServerSidePropsContext<ParsedUrlQuery>) {
   const { 'crypto-calculator-token': access_token } = parseCookies(ctx);
 
   const api = axios.create({
-    baseURL: process.env.ENDPOINT_URL,
+    baseURL: process.env.NEXT_PUBLIC_ENDPOINT_URL,
   });
 
   if (access_token) {
