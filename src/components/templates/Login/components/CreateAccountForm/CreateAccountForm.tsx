@@ -23,20 +23,24 @@ export default function CreateAccountForm(): ReactElement {
       confirmPassword,
     };
 
-    axios
-      .post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/register`, data)
-      .then(() => router.push('/login'))
-      .catch(function (error) {
-        const message = error.response.data.error;
-        if (message === 'Password and Confirmation Does Not Match') {
-          setEmailError(false);
-          setPasswordError(true);
-        }
-        if (message === 'Email Already in Use') {
-          setPasswordError(false);
-          setEmailError(true);
-        }
-      });
+    if (password === confirmPassword) {
+      axios
+        .post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/register`, data)
+        .then(() => router.push('/login'))
+        .catch(function (error) {
+          const message = error.response.data.error;
+          if (message === 'Password and Confirmation Does Not Match') {
+            setEmailError(false);
+            setPasswordError(true);
+          }
+          if (message === 'Email Already in Use') {
+            setPasswordError(false);
+            setEmailError(true);
+          }
+        });
+    } else {
+      setPasswordError(true);
+    }
   };
 
   const renderError = () => {
