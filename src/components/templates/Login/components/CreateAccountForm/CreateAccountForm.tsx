@@ -25,7 +25,7 @@ export default function CreateAccountForm(): ReactElement {
 
     if (password === confirmPassword) {
       axios
-        .post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/user/register`, data)
+        .post(`${process.env.NEXT_PUBLIC_ENDPOINT_URL}/users/register`, data)
         .then(() => router.push('/login'))
         .catch(function (error) {
           const message = error.response.data.error;
