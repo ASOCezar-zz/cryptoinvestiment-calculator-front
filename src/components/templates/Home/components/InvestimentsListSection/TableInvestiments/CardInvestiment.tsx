@@ -9,13 +9,21 @@ export default function CardInvestiment({ id, coinName, investimentValue, profit
 
   let componentClass: string;
 
+  const showCoinName = () => {
+    if (coinName === 'bitcoin') return 'Bitcoin';
+    if (coinName === 'ethereum') return 'Ethereum';
+    if (coinName === 'litecoin') return 'Litecoin';
+    if (coinName === 'ripple') return 'Ripple';
+    if (coinName === 'binance_coin') return 'Binance';
+  };
+
   if (profit < 0) componentClass = 'negative';
   return (
     <Card>
       <Content>
         <Header>
           <div className="icon">{renderIcon(coinName)}</div>
-          <h1>Bitcoin</h1>
+          <h1>{showCoinName()}</h1>
         </Header>
         <Infos componentClass={componentClass}>
           <div className="info">
