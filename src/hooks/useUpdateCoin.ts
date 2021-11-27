@@ -21,9 +21,9 @@ export const useUpdateCoin = async (): Promise<void> => {
   }, []);
 
   useEffect(() => {
-    const time = +updateTime.split('T')[1]?.split(':')[0];
-    const now = +new Date().toISOString().split('T')[1].split(':')[0];
-    if (now - time >= 1) {
+    const time = Date.parse(updateTime);
+    const now = Date.parse(new Date().toISOString());
+    if (now - time >= 1800000) {
       api.post('/coin');
     }
   }, [updateTime]);
